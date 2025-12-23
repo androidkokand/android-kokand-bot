@@ -1,3 +1,4 @@
+import os
 from telegram import Update, ReplyKeyboardMarkup
 from telegram.ext import (
     ApplicationBuilder,
@@ -7,7 +8,7 @@ from telegram.ext import (
     filters,
 )
 
-TOKEN = "8144798730:AAFueF0jwbI1eYF9IEoxmuFNUbUGPknC9A0"
+TOKEN = os.getenv("TOKEN")
 
 USD_KURS = 12200
 OY = 12
@@ -27,7 +28,6 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 async def valyuta_tanlash(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    # Endi doim USD
     context.user_data["kurs"] = USD_KURS
     context.user_data["step"] = "price"
 
@@ -53,7 +53,7 @@ async def matn_qabul(update: Update, context: ContextTypes.DEFAULT_TYPE):
         except:
             await update.message.reply_text("❌ Telefon narxini to‘g‘ri kiriting!")
 
-    # 2️⃣ Boshlang‘ich to‘lov (UZS)
+    # 2️⃣ Boshlang‘ich to‘lov
     elif step == "downpayment":
         try:
             bosh_tolov = float(update.message.text.replace(" ", "").replace(",", ""))
