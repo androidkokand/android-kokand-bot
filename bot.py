@@ -8,7 +8,7 @@ from telegram.ext import (
     filters,
 )
 
-TOKEN = os.getenv("8144798730:AAFueF0jwbI1eYF9IEoxmuFNUbUGPknC9A0")
+TOKEN = os.getenv("TOKEN")
 
 USD_KURS = 12200
 OY = 12
