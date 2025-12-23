@@ -7,7 +7,7 @@ from telegram.ext import (
     filters,
 )
 
-TOKEN = "8144798730:AAFueF0jwbI1eYF9IEoxmuFNUbUGPknC9A0"
+TOKEN = "8144798730:AAHRnyz62Nz0FdF8PTkmc76bmRmFREcaiMo"
 
 USD_KURS = 12200
 OY = 12
