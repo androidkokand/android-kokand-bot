@@ -1,3 +1,4 @@
+import os
 from telegram import Update, ReplyKeyboardMarkup
 from telegram.ext import (
     ApplicationBuilder,
@@ -9,6 +10,7 @@ from telegram.ext import (
 
 TOKEN = "8144798730:AAHRnyz62Nz0FdF8PTkmc76bmRmFREcaiMo"
 
+# 📊 Sozlamalar
 USD_KURS = 12200
 OY = 12
 USTAMA = 1.575
@@ -21,19 +23,14 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
 
     await update.message.reply_text(
-        "💱 Telefon narxi USD’da kiritiladi:",
+        "💱 Telefon narxi USD’da kiritiladi.",
         reply_markup=reply_markup
     )
 
 
 async def valyuta_tanlash(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    # Endi doim USD
-    context.user_data["kurs"] = USD_KURS
     context.user_data["step"] = "price"
-
-    await update.message.reply_text(
-        "📱 Telefon narxini USD’da kiriting:"
-    )
+    await update.message.reply_text("📱 Telefon narxini USD’da kiriting:")
 
 
 async def matn_qabul(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -70,12 +67,10 @@ async def matn_qabul(update: Update, context: ContextTypes.DEFAULT_TYPE):
             oylik = umumiy / OY
 
             await update.message.reply_text(
-    f"💰 Boshlang‘ich to‘lov: {int(bosh_tolov):,} so‘m\n"
-    f"📆 Muddati: 12 oy\n"
-    f"💳 Oylik to‘lov: {int(oylik):,} so‘m\n\n"
-    f"📞 To‘liq ma’lumot uchun: 912046465"
-)
-
+                f"💰 Boshlang‘ich to‘lov: {int(bosh_tolov):,} so‘m\n"
+                f"📆 Muddat: 12 oy\n"
+                f"💳 Oylik to‘lov: {int(oylik):,} so‘m\n\n"
+                f"📞 To‘liq ma’lumot uchun: 912046465"
             )
 
             context.user_data.clear()
@@ -91,7 +86,7 @@ def main():
     app.add_handler(MessageHandler(filters.Regex("USD"), valyuta_tanlash))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, matn_qabul))
 
-    print("🤖 USD-only bot ishga tushdi...")
+    print("🤖 Android Kokand bot ishga tushdi...")
     app.run_polling()
 
 
