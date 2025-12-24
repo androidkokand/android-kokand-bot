@@ -67,7 +67,7 @@ async def matn_qabul(update: Update, context: ContextTypes.DEFAULT_TYPE):
             oylik = umumiy / OY
 
             await update.message.reply_text(
-                f"💰 Boshlang‘ich to‘lovi: {int(bosh_tolov):,} so‘m\n"
+                f"💰 Boshlang‘ich to‘lovii: {int(bosh_tolov):,} so‘m\n"
                 f"📆 Muddat: 12 oy\n"
                 f"💳 Oylik to‘lov: {int(oylik):,} so‘m\n\n"
                 f"📞 To‘liq ma’lumot uchun: 912046465"
