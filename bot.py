@@ -7,7 +7,7 @@ from telegram.ext import (
     filters,
 )
 
-TOKEN = "BOT_TOKEN"
+TOKEN = "8144798730:AAHRnyz62Nz0FdF8PTkmc76bmRmFREcaiMo"
 
 USD_KURS = 12200
 OY = 12
@@ -70,10 +70,12 @@ async def matn_qabul(update: Update, context: ContextTypes.DEFAULT_TYPE):
             oylik = umumiy / OY
 
             await update.message.reply_text(
-                f"📱 Telefon narxi: {int(narx_som):,} so‘m\n"
-                f"💰 Boshlang‘ich to‘lov: {int(bosh_tolov):,} so‘m\n"
-                f"📆 Muddat: 12 oy\n"
-                f"💳 Oylik to‘lov: {int(oylik):,} so‘m"
+    f"💰 Boshlang‘ich to‘lov: {int(bosh_tolov):,} so‘m\n"
+    f"📆 Muddati: 12 oy\n"
+    f"💳 Oylik to‘lov: {int(oylik):,} so‘m\n\n"
+    f"📞 To‘liq ma’lumot uchun: 912046465"
+)
+
             )
 
             context.user_data.clear()
